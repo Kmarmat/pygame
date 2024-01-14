@@ -1,0 +1,19 @@
+ def isCollide(self):
+        for i in range(0,7):
+            if(self.birdX >= self.pipesX[i] and self.birdX <= (self.pipesX[i]+pipe.get_width())
+                and ((self.birdY+bird.get_height()-15) >= self.lowerPipeY[i] or 
+                (self.birdY) <= self.upperPipeY[i]+rotatedpipe.get_height()-15)):
+                    return True
+                
+            elif(self.birdX == self.pipesX[i] and (self.birdY <= self.lowerPipeY[i] and self.birdY >= self.upperPipeY[i])):
+                if(self.isGameOver == False):
+                    self.score += 1
+                    pygame.mixer.Sound.play(point)
+
+        if(self.birdY <= 0):
+            return True
+  
+        elif (self.birdY+bird.get_height()>=height):
+            self.gravity =0
+            return True
+        return False  
